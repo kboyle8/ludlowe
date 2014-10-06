@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <h2>Welcome to the new posts template.</h2><br>
+
+  <%= form_for :post, url: posts_path do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: "form-control" %>
+    </p>
+ 
+    <p>
+      <%= f.label :text %><br>
+      <%= f.text_area :text, class: "form-control" %>
+    </p>
+ 
+    <p>
+      <%= f.submit class: "btn btn-primary" %>
+    </p>
+  <% end %>
+</div>

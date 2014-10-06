@@ -2,6 +2,7 @@ $body-bg: #303060;
 $brand-primary: #008cb4;
 $font-family-base: verdana;
 $jumbotron-bg: #e8ecf0;
+$jumbotron-font-size: 16px;
 
 $navbar-default-bg: #202050;
 $navbar-default-link-color: #ffffff;
@@ -14,8 +15,13 @@ $navbar-default-brand-color: #008cb4;
 .navbar-brand {
   font-weight: bold;
   font-family: krungthep;
-  font-size: 44px;
+  font-size: 42px;
 
   position: relative;
   top: 20px;
+}
+
+.maintext {
+  font-family: verdana;
+  font-size: 10px;
 }
