@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  http_basic_authenticate_with name: "kyle", password: "rubyRails4815162342", except: [:index, :show]
+    http_basic_authenticate_with name: "kyle", password: "rubyRails4815162342", only: :destroy
 
   def new
     @post = Post.new
