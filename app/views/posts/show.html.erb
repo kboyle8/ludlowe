@@ -1,10 +1,54 @@
+<%= link_to "[del]", post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: "hiddendelete" %>
+
+
 <div class="jumbotron">
-  <p>
-    <strong>Name:</strong>
-    <%= @post.name %>
-  </p>
-  <p>
-    <strong>Text:</strong>
-    <%= @post.text %>
-  </p>
+  <div class="nametext"><%= @post.name %></div>
+  <div class="mycontainer">
+    <div class="maintext"><%= @post.text %></div>
+  </div>
+  <div class="timetext"><%= @post.created_at %></div>
 </div>
+<br>
+
+
+<% @post.comments.each do |comment| %>
+  <%= link_to '[del]', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "hiddendelete" %>
+
+  <div class="commentcontainer">
+    <div class="jumbotron">
+      <div class="nametext"><%= comment.commenter %></div>
+      <div class="mycontainer">
+        <div class="maintext"><%= comment.body %></div>
+      </div>
+      <div class="timetext"><%= @post.created_at %></div>
+    </div>
+  </div>
+<% end %>
+
+
+<br>
+<div class="commentcontainer">
+  <div class="jumbotron">
+    <h4>Add a comment:</h4><br>
+
+    <%= form_for([@post, @post.comments.build]) do |f| %>
+      <p>
+        <%= f.label :commenter %><br>
+        <%= f.text_field :commenter, class: "form-control" %>
+      </p>
+ 
+      <p>
+        <%= f.label :body %><br>
+        <%= f.text_area :body, class: "form-control" %>
+      </p>
+ 
+      <p>
+        <%= f.submit class: "btn btn-primary" %>
+      </p>
+    <% end %>
+  </div>
+</div>
+
+<br>
+<%= link_to 'Back', posts_path %>
+<br><br>
