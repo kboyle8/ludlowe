@@ -21,7 +21,7 @@
   <div class="jumbotron">
     <div class="nametext"><%= post.name %></div>
     <div class="mycontainer">
-      <div class="maintext"><%= post.text %></div>
+      <div class="maintext"><%= h(post.text).gsub(/\n/, '<br/>').html_safe %></div>
     </div>
     <div class="timetext"><%= post.created_at %></div>
   </div>

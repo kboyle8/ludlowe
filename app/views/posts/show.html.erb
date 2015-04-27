@@ -17,7 +17,7 @@
     <div class="jumbotron">
       <div class="nametext"><%= comment.commenter %></div>
       <div class="mycontainer">
-        <div class="maintext"><%= comment.body %></div>
+        <div class="maintext"><%= h(comment.body).gsub(/\n/, '<br/>').html_safe %></div>
       </div>
       <div class="timetext"><%= @post.created_at %></div>
     </div>
