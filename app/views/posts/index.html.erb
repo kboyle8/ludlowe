@@ -18,9 +18,11 @@
 
 
 <% @posts.each do |post| %>
-  <%= link_to "[del]", post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "hiddendelete" %>
+  <% if (post_path(post)[7..-1].to_i > 50); post.delete; end %>
+  
   <div class="jumbotron">
     <div class="nametext"><%= post.name %></div>
+    <div class="nametext"><%= post_path(post) %></div>
     <div class="mycontainer">
       <div class="maintext"><%= h(post.text).gsub(/\n/, '<br/>').html_safe %></div>
     </div>
