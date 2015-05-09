@@ -1,0 +1,5 @@
+<% if (post_path(post)[7..-1].to_i) >   \\x//  ); post.delete; end %>
+
+# Use this to delete all posts above \\x//, in case of spam. This should no longer be an issue because of recaptcha.
+
+# Place it in the index under the thing that lists all the posts.
