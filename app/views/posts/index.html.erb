@@ -18,6 +18,7 @@
 
 
 <% @posts.each do |post| %>
+  <%= link_to "[del]", post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "hiddendelete" %>
   <div class="jumbotron">
     <div class="nametext"><%= post.name %></div>
     <div class="mycontainer">

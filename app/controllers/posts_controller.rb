@@ -14,12 +14,12 @@ class PostsController < ApplicationController
   end
   
   def create
-      #@post = Post.new(post_params)
-      
-      #if @post.save
-      #redirect_to @post
-      # else
+    captcha_message = "The data you entered for the CAPTCHA wasn't correct. Please try again."
+    @post = Post.new(post_params)
+    if !verify_recaptcha(model: @post, message: captcha_message) || !@post.save
       render 'new'
+    else
+      redirect_to @post
     end
   end
   
